@@ -1,9 +1,9 @@
-package com.example
+package com.amirreza
 
 import io.ktor.application.*
-import com.example.plugins.*
+import com.amirreza.plugins.*
 import org.koin.ktor.ext.Koin
-import com.example.dependency_injection.projectModules
+import com.amirreza.dependency_injection.projectModules
 
 fun main(args: Array<String>): Unit =
     io.ktor.server.netty.EngineMain.main(args)
@@ -11,7 +11,6 @@ fun main(args: Array<String>): Unit =
 
 @Suppress("unused")
 fun Application.module() {
-
     install(Koin){
         modules(projectModules)
     }

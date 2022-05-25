@@ -1,8 +1,8 @@
-package com.example.dependency_injection
+package com.amirreza.dependency_injection
 
-import com.example.data.MessageSource
-import com.example.data.model.MessageSourceImpl
-import com.example.room.RoomController
+import com.amirreza.data.MessageSource
+import com.amirreza.data.model.MessageSourceImpl
+import com.amirreza.room.RoomController
 import org.koin.dsl.module
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo
@@ -10,7 +10,8 @@ import org.litote.kmongo.reactivestreams.KMongo
 
 val projectModules = module {
     single {
-        KMongo.createClient()
+        KMongo
+            .createClient()
             .coroutine
             .getDatabase("chatroom_db")
     }

@@ -1,4 +1,4 @@
-package com.example.room
+package com.amirreza.room
 
 import io.ktor.http.cio.websocket.*
 

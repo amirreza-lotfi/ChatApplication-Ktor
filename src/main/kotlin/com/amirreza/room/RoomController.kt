@@ -1,7 +1,7 @@
-package com.example.room
+package com.amirreza.room
 
-import com.example.data.MessageSource
-import com.example.data.model.Message
+import com.amirreza.data.MessageSource
+import com.amirreza.data.model.Message
 import io.ktor.http.cio.websocket.*
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -17,13 +17,13 @@ class RoomController(
 
     private val membersOfChatroom = ConcurrentHashMap<String, Member>()
 
-    fun onJoined(
+    fun onJoinedChat(
         userName:String,
         sessionId:String,
         socket:WebSocketSession
     ){
         if(membersOfChatroom.contains(userName)){
-            //todo
+            //todo : implement your plan when there is same name in chatroom.
         }
         else{
             membersOfChatroom[userName] = Member(userName,sessionId,socket)
@@ -43,6 +43,10 @@ class RoomController(
         messageSource.sendMessage(messageObject)
         val jsonString = Json.encodeToString(message)
 
+        sendMessageToOtherUsersInChat(jsonString)
+    }
+
+    private suspend fun sendMessageToOtherUsersInChat(jsonString:String){
         membersOfChatroom.values.forEach{ member ->
             member.socket.send(Frame.Text(jsonString))
         }

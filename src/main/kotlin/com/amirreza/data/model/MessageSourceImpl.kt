@@ -1,12 +1,12 @@
-package com.example.data.model
+package com.amirreza.data.model
 
-import com.example.data.MessageSource
+import com.amirreza.data.MessageSource
 import org.litote.kmongo.coroutine.CoroutineDatabase
 
 class MessageSourceImpl(
     database:CoroutineDatabase
 ):MessageSource {
-    val messages = database.getCollection<Message>()
+    private val messages = database.getCollection<Message>()
 
     override suspend fun getAllMessages(): List<Message> {
         return messages.find()

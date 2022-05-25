@@ -1,12 +1,8 @@
-package com.example.plugins
+package com.amirreza.plugins
 
 import io.ktor.sessions.*
 import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.request.*
-import io.ktor.routing.*
 import io.ktor.util.*
-import javax.print.attribute.standard.RequestingUserName
 
 fun Application.configureSecurity() {
     install(Sessions) {

@@ -1,6 +1,6 @@
-package com.example.data
+package com.amirreza.data
 
-import com.example.data.model.Message
+import com.amirreza.data.model.Message
 
 interface MessageSource {
     suspend fun getAllMessages():List<Message>
