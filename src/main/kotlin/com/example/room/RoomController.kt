@@ -57,7 +57,7 @@ class RoomController(
         removeUserName(userName)
     }
 
-    fun removeUserName(userName: String){
+    private fun removeUserName(userName: String){
         membersOfChatroom.remove(userName)
     }
 
